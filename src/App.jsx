@@ -24,7 +24,7 @@ function App() {
   return (
     !isRefreshingCurrentUser && (
       <Routes>
-        <Route exact path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route path="" element={<PublicRoute />}>
             <Route index element={<HomePage />} />
           </Route>
