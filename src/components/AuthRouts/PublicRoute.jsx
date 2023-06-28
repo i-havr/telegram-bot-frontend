@@ -6,5 +6,5 @@ import { selectIsLoggedIn } from "../../redux/auth/auth-selectors";
 export const PublicRoute = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return isLoggedIn ? <Navigate to={"/create-post"} replace /> : <Outlet />;
+  return isLoggedIn ? <Navigate to={"/create-comment"} replace /> : <Outlet />;
 };

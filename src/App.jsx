@@ -9,7 +9,9 @@ import { PublicRoute, PrivateRoute } from "./components/AuthRouts";
 import Layout from "./components/Layout/Layout";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
-const LogInPage = lazy(() => import("./pages/LoginPage/LoginPage"));
+const CreateCommentPage = lazy(() =>
+  import("./pages/CreateCommentPage/CreateCommentPage")
+);
 
 function App() {
   const dispatch = useDispatch();
@@ -22,10 +24,13 @@ function App() {
   return (
     !isRefreshingCurrentUser && (
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route exact path="/" element={<Layout />}>
           <Route path="" element={<PublicRoute />}>
             <Route index element={<HomePage />} />
-            <Route path="login" element={<LogInPage />} />
+          </Route>
+
+          <Route path="" element={<PrivateRoute />}>
+            <Route path="create-comment" element={<CreateCommentPage />} />
           </Route>
         </Route>
       </Routes>

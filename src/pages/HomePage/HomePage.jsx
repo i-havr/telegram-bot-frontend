@@ -1,7 +1,22 @@
-import * as SC from "./HomePage.styled";
+import * as Styles from "./HomePage.styled";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
 export default function HomePage() {
   return (
+    <Box
+      component="form"
+      sx={{
+        "& > :not(style)": { m: 2, width: "25ch" },
+      }}
+      noValidate
+      autoComplete="off"
+    >
+      <p>HOME PAGE</p>
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+    </Box>
     // <SC.HomePage>
     //   <SC.Section>
     //     <SC.Container>
@@ -9,7 +24,7 @@ export default function HomePage() {
     //     </SC.Container>
     //   </SC.Section>
     // </SC.HomePage>
-    <p>HOME PAGE</p>
+
     // <HomeStyled>
     //   <SectionStyled>
     //     <ContainerStyled>

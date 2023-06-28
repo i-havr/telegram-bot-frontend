@@ -5,7 +5,6 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
 
