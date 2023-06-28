@@ -21,7 +21,7 @@ export const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      notifyError(`Whoops, incorrect login or password`);
+      notifyError(`Неправильна пошта або пароль`);
       return rejectWithValue("Error: ", error.response.status);
     }
   }
@@ -34,11 +34,7 @@ export const logOut = createAsyncThunk(
       await axios.post("/users/logout");
       token.unset();
     } catch (error) {
-      notifyError(
-        `Whoops, ${error.response.statusText.toLowerCase()} (${
-          error.response.status
-        })`
-      );
+      notifyError(`Ой, сталася помилка (${error.response.status})`);
       return rejectWithValue("Error: ", error.response.status);
     }
   }

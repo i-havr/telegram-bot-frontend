@@ -12,7 +12,6 @@ const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const CreateCommentPage = lazy(() =>
   import("./pages/CreateCommentPage/CreateCommentPage")
 );
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +32,7 @@ function App() {
           <Route path="" element={<PrivateRoute />}>
             <Route path="create-comment" element={<CreateCommentPage />} />
           </Route>
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<HomePage />} />
         </Route>
       </Routes>
     )
