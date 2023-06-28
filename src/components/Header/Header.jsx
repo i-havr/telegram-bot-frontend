@@ -21,7 +21,7 @@ export const Header = () => {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href=""
             sx={{
               flexGrow: 0,
               alignItems: "center",
