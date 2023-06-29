@@ -53,7 +53,6 @@ export const Form = styled.form`
   border-radius: 5px;
 
   @media screen and (min-width: 480px) {
-    /* min-width: 70%; */
     padding: 32px;
   }
 
@@ -99,7 +98,7 @@ export const Text = styled.p`
   margin-left: auto;
   margin-right: auto;
   font-size: 12px;
-  margin-top: 24px;
+  margin-top: 12px;
   margin-bottom: 24px;
   color: red;
 `;

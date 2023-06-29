@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Toaster } from "react-hot-toast";
+// import { useDispatch } from "react-redux";
 // import { logIn } from "../../redux/auth/auth-operations";
-import { Button } from "../../components/Button/Button";
+import { SendBtn } from "../../components/Button/SendBtn";
 
 import { onExpandableTextareaInput } from "../../helpers/auto-expanding-textarea";
 
@@ -11,7 +10,7 @@ import * as SC from "./CreateCommentPage.styled";
 document.addEventListener("input", onExpandableTextareaInput);
 
 export default function CreateCommentPage() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [token, setToken] = useState("");
   const [message, setMessage] = useState("");
   const [newMessage, setNewMessage] = useState("");
@@ -37,7 +36,7 @@ export default function CreateCommentPage() {
         <SC.Container>
           <SC.Form>
             <SC.Label>
-              Токен
+              Поле 1
               <SC.Textarea
                 className="autoExpand"
                 type="text"
@@ -81,7 +80,7 @@ export default function CreateCommentPage() {
 
             <SC.Text>
               Увага! <br />
-              Список телеграм-каналів обов'язково необхідно вводити через кому
+              Список телеграм-каналів необхідно вводити через кому
             </SC.Text>
             <SC.Label>
               Телеграм-канали
@@ -97,6 +96,7 @@ export default function CreateCommentPage() {
                 autoFocus
               />
             </SC.Label>
+            <SendBtn>Відправити</SendBtn>
           </SC.Form>
         </SC.Container>
       </SC.Section>

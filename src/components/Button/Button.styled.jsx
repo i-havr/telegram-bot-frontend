@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const Button = styled.button`
   min-width: 80px;
   max-width: 50%;
   font-family: "Roboto";
@@ -14,4 +14,10 @@ export const StyledButton = styled.button`
   &:hover {
     background-color: rgb(22, 115, 214);
   }
+`;
+
+export const SendBtn = styled(Button)`
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
 `;

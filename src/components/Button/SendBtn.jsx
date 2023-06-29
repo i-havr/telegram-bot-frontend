@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 
 import * as SC from "./Button.styled";
 
-export const Button = ({ type = "submit", children, actionHandler }) => {
+export const SendBtn = ({ type = "submit", children, actionHandler }) => {
   return (
-    <SC.Button type={type} onClick={actionHandler}>
+    <SC.SendBtn type={type} onClick={actionHandler}>
       {children}
-    </SC.Button>
+    </SC.SendBtn>
   );
 };
 
-Button.propTypes = {
+SendBtn.propTypes = {
   type: PropTypes.string,
   children: PropTypes.string.isRequired,
   actionHandler: PropTypes.func,
