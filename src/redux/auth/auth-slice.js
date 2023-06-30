@@ -15,7 +15,7 @@ const authSlice = createSlice({
     builder
       .addCase(logIn.pending, () => {})
       .addCase(logIn.fulfilled, (state, { payload }) => {
-        state.email = payload.email;
+        state.email = payload.user.email;
         state.token = payload.token;
         state.isLoggedIn = true;
       })

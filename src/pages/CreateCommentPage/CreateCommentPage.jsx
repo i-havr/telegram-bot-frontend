@@ -1,6 +1,9 @@
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
-// import { logIn } from "../../redux/auth/auth-operations";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectUserEmail } from "../../redux/auth/auth-selectors";
+
+import { log } from "../../redux/comment/comment-operations";
 import { SendBtn } from "../../components/Button/SendBtn";
 
 import { onExpandableTextareaInput } from "../../helpers/auto-expanding-textarea";
@@ -10,16 +13,18 @@ import * as SC from "./CreateCommentPage.styled";
 document.addEventListener("input", onExpandableTextareaInput);
 
 export default function CreateCommentPage() {
-  // const dispatch = useDispatch();
-  const [token, setToken] = useState("");
+  const dispatch = useDispatch();
+  const email = useSelector(selectUserEmail);
+
+  const [telegramToken, setTelegramToken] = useState("");
   const [message, setMessage] = useState("");
   const [newMessage, setNewMessage] = useState("");
   const [channelsList, setChannelsList] = useState("");
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
-      case "token":
-        return setToken(value);
+      case "telegramToken":
+        return setTelegramToken(value);
       case "message":
         return setMessage(value);
       case "newMessage":
@@ -30,21 +35,31 @@ export default function CreateCommentPage() {
         return;
     }
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("SEND MESSAGE!");
+
+    dispatch(log({ email, telegramToken, message, newMessage, channelsList }));
+    // setEmail("");
+    // setPassword("");
+  };
+
   return (
     <SC.CreateCommentPage>
       <SC.Section>
         <SC.Container>
-          <SC.Form>
+          <SC.Form onSubmit={handleSubmit} autoComplete="off">
             <SC.Label>
-              Поле 1
+              Токен
               <SC.Textarea
                 className="autoExpand"
                 type="text"
                 rows={2}
                 data-min-rows={2}
                 placeholder="Поле обов'язкове"
-                name="token"
-                value={token}
+                name="telegramToken"
+                value={telegramToken}
                 onChange={handleChange}
                 autoFocus
               />

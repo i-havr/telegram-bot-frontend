@@ -12,7 +12,7 @@ export const UserMenu = () => {
   return (
     <SC.UserMenu>
       <IoIosContact />
-      <p>palianytsa@gmail.com</p>
+      <p>{email}</p>
       <Button type="button" actionHandler={() => dispatch(logOut())}>
         Вийти
       </Button>

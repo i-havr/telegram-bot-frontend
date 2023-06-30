@@ -2,7 +2,7 @@ import axios from "axios";
 import { notifyError } from "../../components/Notify/NotifyError";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:3000";
 
 const token = {
   set(token) {
@@ -44,13 +44,16 @@ export const refreshCurrentUser = createAsyncThunk(
   "auth/refresh",
   async (_, { getState, rejectWithValue }) => {
     const state = getState();
+
     const persistedToken = state.auth.token;
+
     if (!persistedToken) {
       return rejectWithValue();
     }
     token.set(persistedToken);
     try {
-      const { data } = await axios.get("/users/current");
+      const { data } = await axios.post("/users/current");
+
       return data;
     } catch (error) {
       notifyError(error.response.statusText);
